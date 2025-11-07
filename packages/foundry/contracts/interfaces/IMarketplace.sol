@@ -2,5 +2,5 @@
 pragma solidity 0.8.30;
 
 interface IMarketplace {
-    function applyDisputeResult(uint64 _disputeId, bool _result) external;
+    function applyDisputeResult(uint64 _disputeId, uint64 _dealId) external;
 }

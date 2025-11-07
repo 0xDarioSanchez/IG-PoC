@@ -108,12 +108,13 @@ contract ProtocolContract {
     }
 
 
-    /// Function called by a MarketplaceInstance contract to create a dispute
+    /// Function called by a Marketplace contract to create a dispute
     /// @param _requester address of the requester (the one who opens the dispute, it will always be the `payer`)
     /// @param _proofs striing to indicate a link to the proofs provided by the requester, it can be updated later
-    function createDispute(address _requester, string calldata _proofs) external {
+    function createDispute(uint64 _dealId, address _requester, string calldata _proofs) external {
         Dispute storage dispute = disputes[disputeCount];
 
+        dispute.disputeId = uint32(_dealId);
         dispute.requester = _requester;
         dispute.requesterProofs = _proofs;
         dispute.contractAddress = msg.sender;
@@ -214,8 +215,6 @@ contract ProtocolContract {
                 }
                 contractBalance += prize * negativeVotes;
 
-                IMarketplace(dispute.contractAddress).applyDisputeResult(_disputeId, true);
-
                 emit DisputeResolved(_disputeId, dispute.requester);
             }
             // If the beneficiaty wins
@@ -229,8 +228,6 @@ contract ProtocolContract {
                     }
                 }
                 contractBalance += prize * positiveVotes;
-
-                IMarketplace(dispute.contractAddress).applyDisputeResult(_disputeId, false);
 
                 emit DisputeResolved(_disputeId, dispute.beneficiary);
             }

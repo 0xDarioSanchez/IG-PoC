@@ -4,6 +4,1104 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    MockUSDC: {
+      address: "0x8ce361602b935680e8dec218b820ff5056beb7af",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "allowance",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "approve",
+          inputs: [
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "balanceOf",
+          inputs: [
+            {
+              name: "account",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "decimals",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "mint",
+          inputs: [
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "name",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "symbol",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "totalSupply",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transfer",
+          inputs: [
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferFrom",
+          inputs: [
+            {
+              name: "from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "Approval",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "spender",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Transfer",
+          inputs: [
+            {
+              name: "from",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "error",
+          name: "ERC20InsufficientAllowance",
+          inputs: [
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "allowance",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "needed",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "ERC20InsufficientBalance",
+          inputs: [
+            {
+              name: "sender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "balance",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "needed",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "ERC20InvalidApprover",
+          inputs: [
+            {
+              name: "approver",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "ERC20InvalidReceiver",
+          inputs: [
+            {
+              name: "receiver",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "ERC20InvalidSender",
+          inputs: [
+            {
+              name: "sender",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "ERC20InvalidSpender",
+          inputs: [
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+        },
+      ],
+      inheritedFunctions: {},
+      deployedOnBlock: 32,
+    },
+    Marketplace: {
+      address: "0xe1da8919f262ee86f9be05059c9280142cf23f48",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "_owner",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_feePercent",
+              type: "uint8",
+              internalType: "uint8",
+            },
+            {
+              name: "_token",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_protocolAddress",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "acceptDeal",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addDisputeEvidenceForBeneficiary",
+          inputs: [
+            {
+              name: "_disputeId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_proof",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addDisputeEvidenceForPayer",
+          inputs: [
+            {
+              name: "_disputeId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_proof",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addRole",
+          inputs: [
+            {
+              name: "_isPayer",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_isBeneficiary",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_isJudge",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "applyDisputeResult",
+          inputs: [
+            {
+              name: "_disputeId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createDeal",
+          inputs: [
+            {
+              name: "_payer",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "_amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_duration",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "dealIdCounter",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "deals",
+          inputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "payer",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "beneficiary",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "startedAt",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "duration",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "accepted",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "disputed",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "disputes",
+          inputs: [
+            {
+              name: "",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "requester",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "requesterProofs",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "beneficiaryProofs",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "waitingForJudges",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "isOpen",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "feePercent",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "finishDeal",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "protocol",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IProtocol",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "registerUser",
+          inputs: [
+            {
+              name: "_isPayer",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_isBeneficiary",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_isJudge",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "rejectDeal",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "requestDealPayment",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "requestDispute",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_proof",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setFeePercent",
+          inputs: [
+            {
+              name: "_newFeePercent",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateDealAmount",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_newAmount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "updateDealDuration",
+          inputs: [
+            {
+              name: "_dealId",
+              type: "uint64",
+              internalType: "uint64",
+            },
+            {
+              name: "_newDuration",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "usdc",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IERC20",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "users",
+          inputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "userAddress",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "balance",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "reputationAsUser",
+              type: "int8",
+              internalType: "int8",
+            },
+            {
+              name: "reputationAsJudge",
+              type: "int8",
+              internalType: "int8",
+            },
+            {
+              name: "isPayer",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "isBeneficiary",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "isJudge",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "withdraw",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "DealAccepted",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DealAmountUpdated",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+            {
+              name: "newAmount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DealCreated",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+            {
+              name: "payer",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "beneficiary",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DealDurationUpdated",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+            {
+              name: "newDuration",
+              type: "uint16",
+              indexed: false,
+              internalType: "uint16",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DealFinalized",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DealRejected",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DisputeCreated",
+          inputs: [
+            {
+              name: "dealId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+            {
+              name: "requester",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DisputeRequested",
+          inputs: [
+            {
+              name: "disputeId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "requester",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "DisputeResolved",
+          inputs: [
+            {
+              name: "disputeId",
+              type: "uint64",
+              indexed: true,
+              internalType: "uint64",
+            },
+            {
+              name: "winner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "NewFeePercent",
+          inputs: [
+            {
+              name: "newFeePercent",
+              type: "uint8",
+              indexed: false,
+              internalType: "uint8",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "PaymentDeposited",
+          inputs: [
+            {
+              name: "user",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "UserRegistered",
+          inputs: [
+            {
+              name: "user",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "isPayer",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+            {
+              name: "isBeneficiary",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+            {
+              name: "isJudge",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "UserWithdrew",
+          inputs: [
+            {
+              name: "user",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "error",
+          name: "ReentrancyGuardReentrantCall",
+          inputs: [],
+        },
+        {
+          type: "error",
+          name: "SafeERC20FailedOperation",
+          inputs: [
+            {
+              name: "token",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+        },
+      ],
+      inheritedFunctions: {},
+      deployedOnBlock: 34,
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;

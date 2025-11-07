@@ -21,7 +21,7 @@ import "./interfaces/IProtocol.sol";
  * It allows the Owner to withdraw the USDC earned throught lending
  * @author 0xDarioSanchez
  */
-contract MarketplaceInstance is ReentrancyGuard{
+contract Marketplace is ReentrancyGuard{
     using SafeERC20 for IERC20;
     // ====================================
     //          STATE VARIABLES          
@@ -207,27 +207,27 @@ contract MarketplaceInstance is ReentrancyGuard{
     //Allow users registered as beneficiaries to create deals
     //It must be accepted by the payer to be effective
     //Only `amount` can be updated after creation, but not if already accepted
-function createDeal(address _payer, uint256 _amount, uint64 _duration) external {
-    require(_amount > 0, "Amount must be greater than zero");
-    require(_payer != address(0), "Invalid payer address");
-    require(users[msg.sender].isBeneficiary, "User not registered as beneficiary");
-    require(users[_payer].isPayer, "Target not registered as payer");
+    function createDeal(address _payer, uint256 _amount, uint64 _duration) external {
+        require(_amount > 0, "Amount must be greater than zero");
+        require(_payer != address(0), "Invalid payer address");
+        require(users[msg.sender].isBeneficiary, "User not registered as beneficiary");
+        require(users[_payer].isPayer, "Target not registered as payer");
 
-    deals[dealIdCounter] = Deal({
-        dealId: dealIdCounter,
-        payer: _payer,
-        beneficiary: msg.sender,
-        amount: _amount,
-        duration: _duration,
-        startedAt: 0,
-        accepted: false,
-        disputed: false
-    });
+        deals[dealIdCounter] = Deal({
+            dealId: dealIdCounter,
+            payer: _payer,
+            beneficiary: msg.sender,
+            amount: _amount,
+            duration: _duration,
+            startedAt: 0,
+            accepted: false,
+            disputed: false
+        });
 
-    emit DealCreated(dealIdCounter, _payer, msg.sender, _amount);
+        emit DealCreated(dealIdCounter, _payer, msg.sender, _amount);
 
-    dealIdCounter += 1;
-}
+        dealIdCounter += 1;
+    }
 
 
     function updateDealAmount(uint64 _dealId, uint256 _newAmount) external dealExists(_dealId) {
@@ -347,7 +347,7 @@ function createDeal(address _payer, uint256 _amount, uint64 _duration) external 
         deal.disputed = true;
 
         // Call Protocol contract
-        protocol.createDispute(msg.sender, _proof);
+        protocol.createDispute(_dealId, msg.sender, _proof);
 
         emit DisputeCreated(_dealId, msg.sender);
     }    
