@@ -31,7 +31,7 @@ contract ProtocolContract {
     IERC20 private usdc;
 
     uint256 private contractBalance;            // Balance of USDC in the contract that is able to be withdrawn by the owner, so is not the total balance of the contract!
-    uint64 public disputeCount = 1;                 // Counter for dispute IDs
+    uint64 public disputeCount = 1;             // Counter for dispute IDs
     uint8 public numberOfVotes = 5;             // Number of votes required to resolve a dispute
 
     uint8 constant USDC_DECIMALS = 6;          // Decimals of USDC token
@@ -214,7 +214,7 @@ contract ProtocolContract {
                 }
                 contractBalance += prize * negativeVotes;
 
-                //IMarketplaceInstance(dispute.contractAddress).applyDisputeResult(_disputeId, true);
+                IMarketplace(dispute.contractAddress).applyDisputeResult(_disputeId, true);
 
                 emit DisputeResolved(_disputeId, dispute.requester);
             }
@@ -230,7 +230,7 @@ contract ProtocolContract {
                 }
                 contractBalance += prize * positiveVotes;
 
-                //IMarketplaceInstance(dispute.contractAddress).applyDisputeResult(_disputeId, false);
+                IMarketplace(dispute.contractAddress).applyDisputeResult(_disputeId, false);
 
                 emit DisputeResolved(_disputeId, dispute.beneficiary);
             }
