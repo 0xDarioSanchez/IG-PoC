@@ -29,7 +29,7 @@ contract ProtocolContract {
 
     address public owner;
     address public factory;
-    IERC20 private pyusd;
+    IERC20 private usdc;
 
     uint256 private contractBalance;            // Balance of USDC in the contract that is able to be withdrawn by the owner, so is not the total balance of the contract!
     uint64 public disputeCount = 1;                 // Counter for dispute IDs
@@ -90,9 +90,9 @@ contract ProtocolContract {
     //           CONSTRUCTOR          
     // ====================================
 
-    constructor(address _owner, address _pyusd) {
+    constructor(address _owner, address _usdc) {
         owner = _owner;
-        pyusd = IERC20(_pyusd);
+        usdc = IERC20(_usdc);
     }
 
     // ====================================
@@ -281,17 +281,17 @@ contract ProtocolContract {
         uint256 amount = judge.balance;
         judge.balance = 0;
 
-        pyusd.safeTransfer(judgeAddress, amount);
+        usdc.safeTransfer(judgeAddress, amount);
     }
 
     // Function that allows the owner to withdraw all the disponible USDC tokens in the contract
     // The tokens assigned to reward judges cannot be withdrawn by the owner or anyone else except the judges
     function withdraw() external onlyOwner {
-        uint256 balance = pyusd.balanceOf(address(this));
+        uint256 balance = usdc.balanceOf(address(this));
         uint256 amountToWithdraw = balance - contractBalance;
         require(amountToWithdraw > 0, "No USDC to withdraw");
 
-        pyusd.safeTransfer(owner, amountToWithdraw);
+        usdc.safeTransfer(owner, amountToWithdraw);
         contractBalance = 0;
     }
 
