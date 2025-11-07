@@ -28,7 +28,6 @@ contract ProtocolContract {
     // ====================================
 
     address public owner;
-    address public factory;
     IERC20 private usdc;
 
     uint256 private contractBalance;            // Balance of USDC in the contract that is able to be withdrawn by the owner, so is not the total balance of the contract!
@@ -98,14 +97,6 @@ contract ProtocolContract {
     // ====================================
     //         EXTERNAL FUNCTIONS          
     // ====================================
-
-    /// Set the Factory contract address, can only be called once and only by the owner
-    /// @param _factory is the address of the Factory contract
-    function setFactoryAddress(address _factory) external onlyOwner {
-        require(factory == address(0), "Factory already set");
-        require(_factory != address(0), "Invalid address");
-        factory = _factory;
-    }
 
     /// Function to register as a judge
     /// Anyone can register as a judge, starting with 0 reputation

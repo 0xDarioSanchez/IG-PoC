@@ -28,10 +28,8 @@ contract MarketplaceInstance is ReentrancyGuard{
     // ====================================
 
     address public immutable owner;             //Owner of the contract, the one who deployed it
-    address public availExecutor;               // Avail executor address
     IERC20 public usdc;                        //Interface for USDC token
     IProtocol public protocol;          //Interface for Protocol contract
-    uint256 public aavePrincipal;               // total USDC principal deposited to Aave by this instance
         
     uint64 public dealIdCounter = 1;            //Incremental ID for deals
     uint8 constant USDC_DECIMALS = 6;          // Decimals of USDC token
